@@ -1,7 +1,7 @@
 package br.com.desafio.service.impl;
 
-import br.com.desafio.repository.ClienteRepository;
 import br.com.desafio.model.Cliente;
+import br.com.desafio.repository.ClienteRepository;
 import br.com.desafio.service.ClienteService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +28,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente buscarPorId(Long id) {
-        return this.clienteRepository.findById(id)
-                .orElse(null);
+        return this.clienteRepository.findOne(id);
     }
 
     @Override
@@ -49,6 +48,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void remover(Long id) {
-        this.clienteRepository.deleteById(id);
+        this.clienteRepository.delete(id);
     }
 }
