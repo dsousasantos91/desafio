@@ -1,6 +1,6 @@
 package br.com.desafio.resource;
 
-import br.com.desafio.domain.Cliente;
+import br.com.desafio.model.Cliente;
 import br.com.desafio.event.RecursoCriadoEvent;
 import br.com.desafio.service.impl.ClienteServiceImpl;
 import io.swagger.annotations.Api;

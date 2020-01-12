@@ -1,4 +1,4 @@
-package br.com.desafio.domain;
+package br.com.desafio.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package br.com.desafio.domain;
+package br.com.desafio.model;
 
 public enum SiglaUnidadeFederativa {
 

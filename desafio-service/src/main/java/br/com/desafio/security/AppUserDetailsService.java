@@ -1,6 +1,6 @@
 package br.com.desafio.security;
 
-import br.com.desafio.domain.Usuario;
+import br.com.desafio.model.Usuario;
 import br.com.desafio.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

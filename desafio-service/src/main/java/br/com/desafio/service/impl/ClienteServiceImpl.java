@@ -1,7 +1,7 @@
 package br.com.desafio.service.impl;
 
 import br.com.desafio.repository.ClienteRepository;
-import br.com.desafio.domain.Cliente;
+import br.com.desafio.model.Cliente;
 import br.com.desafio.service.ClienteService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

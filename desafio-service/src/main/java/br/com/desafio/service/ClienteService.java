@@ -1,6 +1,6 @@
 package br.com.desafio.service;
 
-import br.com.desafio.domain.Cliente;
+import br.com.desafio.model.Cliente;
 
 import java.util.List;
 
