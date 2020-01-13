@@ -4,8 +4,7 @@ import '../../css/side-menu.css'
 import '../../css/bootstrap.min.css'
 import {ErrorMessage, Field, Form, Formik} from "formik"
 import api from "../../services/api";
-import {login} from "../../services/auth";
-import { TOKEN_KEY } from '../../services/auth'
+import {Link} from "react-router-dom";
 
 class ClienteForm extends Component {
 
@@ -50,6 +49,8 @@ class ClienteForm extends Component {
         this.setNumero = this.setNumero.bind(this);
         this.setTipo = this.setTipo.bind(this);
         this.setEmail = this.setEmail.bind(this);
+
+        this.addTelefones = this.addTelefones.bind(this);
     }
 
     enviaForm(evento) {
@@ -135,6 +136,23 @@ class ClienteForm extends Component {
 
     setEmail(evento) {
         this.setState({email:evento.target.value})
+    }
+
+    addTelefones(evento) {
+
+        let telefones = this.state.telefones;
+
+        telefones.push(
+            {
+                ddd:this.state.ddd,
+                numero:this.state.numero,
+                tipo:this.state.tipo
+            }
+        )
+
+        this.setState({
+            telefones:telefones
+        })
     }
 
     render() {
@@ -260,13 +278,48 @@ class ClienteForm extends Component {
                                         </div>
                                     </div>
                                     <div>
-                                        <button className="btn btn-primary" type="button" >+</button>
+                                        <button className="btn btn-primary" type="button" onClick={this.addTelefones}>Add</button>
                                     </div>
+                                    <table className="table table-striped">
+                                        <thead>
+                                        <tr className="text-center">
+                                            <th scope="col">DDD</th>
+                                            <th scope="col">Numero</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Ações</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {
+                                            this.state.telefones.map((telefone) =>
+                                                <tr key={telefone.id}>
+                                                    <td>{telefone.ddd}</td>
+                                                    <td>{telefone.numero}</td>
+                                                    <td>{telefone.tipo}</td>
+                                                    <td>
+                                                        <div className="text-center">
+                                                            <span> </span>
+                                                            <button className="btn btn-secondary" type="submit">
+                                                                Editar
+                                                            </button>
+                                                            <span> </span>
+                                                            <button className="btn btn-danger" type="submit">
+                                                                Excluir
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        }
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div>
                                     <button className="btn btn-primary" type="submit">Salvar</button>
                                     <span> </span>
-                                    <button className="btn btn-primary" type="submit"> Novo</button>
+                                    <Link to="./clientes">
+                                        <button className="btn btn-danger" type="submit"> Cancelar</button>
+                                    </Link>
                                 </div>
                             </Form>
                         </Formik>
