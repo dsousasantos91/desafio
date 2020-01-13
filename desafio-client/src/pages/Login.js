@@ -10,16 +10,19 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 
 class Login extends Component {
 
-    state = {
-        email: "",
-        senha: "",
-        error: ""
-    };
+    constructor() {
+        super();
+        this.state = {
+            email: "",
+            senha: "",
+            error: ""
+        };
+    }
 
     handleSubmit = values => {
 
         api({
-            url: 'http://localhost:8080/oauth/token',
+            url: '/oauth/token',
             method: "post",
             data: `username=${values.email}&password=${values.senha}&grant_type=password`
         }).then(resp => {
@@ -64,7 +67,8 @@ class Login extends Component {
                                         <ErrorMessage component="span" name="password" className="alert alert-danger"/>
                                     </div>
                                     <div className="text-center">
-                                        <button type="submit" className="btn btn-primary btn-lg btn-block">Entrar</button>
+                                        <button type="submit" className="btn btn-primary btn-lg btn-block">Entrar
+                                        </button>
                                     </div>
                                 </Form>
                             </Formik>

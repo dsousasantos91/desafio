@@ -39,8 +39,7 @@ class ClienteList extends Component {
                             <tr className="text-center">
                                 <th scope="col">Nome</th>
                                 <th scope="col">CPF</th>
-                                <th scope="col">Endereço</th>
-                                <th scope="col">Telefones</th>
+                                <th scope="col">Detalhes</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,13 +48,6 @@ class ClienteList extends Component {
                                     <tr key={cliente.id}>
                                         <td>{cliente.nome}</td>
                                         <td>{cliente.cpf}</td>
-                                        <td>
-                                            <div className="text-center">
-                                                <button className="btn btn-primary" type="submit">
-                                                    Ver
-                                                </button>
-                                            </div>
-                                        </td>
                                         <td>
                                             <div className="text-center">
                                                 <button className="btn btn-primary" type="submit">
