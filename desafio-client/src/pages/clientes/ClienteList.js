@@ -4,6 +4,7 @@ import '../../css/side-menu.css'
 import '../../css/bootstrap.min.css'
 
 import api from "../../services/api"
+import {Link} from "react-router-dom";
 
 class ClienteList extends Component {
 
@@ -13,7 +14,7 @@ class ClienteList extends Component {
     }
 
     componentDidMount() {
-        api.get('http://localhost:8080/api/cliente')
+        api.get('/api/cliente')
             .then((response) => {
                 this.setState({lista: response.data})
             })
@@ -26,9 +27,9 @@ class ClienteList extends Component {
                     <div className="jumbotron">
                         <div>
                             <h1> Lista de Clientes </h1>
-                        </div>
-                        <div>
-                            <button className="btn btn-primary" type="submit"> Novo Cliente </button>
+                            <Link to="/cadastrar-cliente">
+                                <button className="btn btn-primary" type="submit"> Novo Cliente </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -39,7 +40,7 @@ class ClienteList extends Component {
                             <tr className="text-center">
                                 <th scope="col">Nome</th>
                                 <th scope="col">CPF</th>
-                                <th scope="col">Detalhes</th>
+                                <th scope="col">Ações</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -52,6 +53,14 @@ class ClienteList extends Component {
                                             <div className="text-center">
                                                 <button className="btn btn-primary" type="submit">
                                                     Ver
+                                                </button>
+                                                <span> </span>
+                                                <button className="btn btn-secondary" type="submit">
+                                                    Editar
+                                                </button>
+                                                <span> </span>
+                                                <button className="btn btn-danger" type="submit">
+                                                    Excluir
                                                 </button>
                                             </div>
                                         </td>
